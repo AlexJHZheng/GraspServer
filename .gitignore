@@ -1,0 +1,61 @@
+# Node.js
+/node_modules/
+npm-debug.log
+yarn-error.log
+.env
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+pip-log.txt
+.tox/
+.coverage
+.cache
+*.egg-info/
+.installed.cfg
+
+# Java
+*.class
+*.jar
+*.war
+*.ear
+*.nar
+hs_err_pid*
+
+# IDEs and editors
+/.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+.vscode/
+*.sublime-workspace
+*.sublime-project
+
+# Operating Systems
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Logs and databases
+*.log
+*.sql
+*.sqlite
+
+# Dependency directories (uncomment this if it's not already covered)
+# /vendor/
+# /bower_components/
+
+# Optional: exclude git hooks
+/.git/hooks/
+
+# Build outputs
+/dist
+/tmp
+/out
+/build
