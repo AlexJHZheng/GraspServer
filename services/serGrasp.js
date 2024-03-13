@@ -56,6 +56,8 @@ LEFT JOIN (
 ) d ON p.ptypeid = d.ptypeid
       WHERE p.pfullname LIKE '%${keyword}%'
     `);
+    // 关闭数据库连接
+    await pool.close();
     return result.recordset;
   } catch (err) {
     console.error("Error searching products:", err);
