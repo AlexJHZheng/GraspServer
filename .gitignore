@@ -62,3 +62,5 @@ Desktop.ini
 
 # 数据库
 dbConfig.json
+# secret keys
+secret.json
