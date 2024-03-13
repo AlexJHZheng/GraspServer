@@ -8,10 +8,32 @@ const graspRouter = require("./router/graspRouter");
 const app = new Koa();
 // 创建一个Router对象表示web app的路由:
 const router = new Router();
+// 引入jsonwebtoken
+const jwt = require("jsonwebtoken");
+const koaJwt = require("koa-jwt");
+// 引入secret
+const { secret } = require("./config/secret");
 
 // 使用中间件
 graspRouter(router);
 
+// 加密登陆错误处理
+app.use((ctx, next) => {
+  return next().catch((err) => {
+    if (401 == err.status) {
+      ctx.status = 401;
+      ctx.body = "Protected resource, use Authorization header to get access\n";
+    } else {
+      throw err;
+    }
+  });
+});
+
+// 使用koaJwt中间件保护路由
+// 除了/login接口，其他接口都需要token
+app.use(koaJwt({ secret: secret }).unless({ path: [/^\/userlogin/] }));
+
+// 使用中间件
 app.use(bodyParser());
 app.use(router.routes());
 app.use(router.allowedMethods());
