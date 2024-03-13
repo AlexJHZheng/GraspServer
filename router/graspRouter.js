@@ -33,7 +33,7 @@ module.exports = function (router) {
     if (!pfullname) {
       ctx.body = {
         code: 400,
-        msg: "请输入产品名称",
+        msg: "请输入产品名称please input pfullname",
       };
       return;
     }
