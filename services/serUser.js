@@ -3,7 +3,7 @@ const sql = require("mssql");
 const dblogin = require("../config/dbConfig.json").dblogin;
 
 //连接数据库
-console.log(dblogin, "dblogin");
+// console.log(dblogin, "dblogin");
 
 // login功能, 通过用户名和密码登录
 async function login(username, password) {
@@ -22,6 +22,8 @@ async function login(username, password) {
   }
   return false;
 }
+
+// 本地功能区
 
 //导出功能;
 module.exports = {

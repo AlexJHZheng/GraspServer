@@ -1,6 +1,8 @@
 // routes/users.js
 // 引入login
 const { login } = require("../services/serUser");
+// 引入searchGraspProduto
+const { searchGraspProduto } = require("../services/serGrasp");
 
 module.exports = function (router) {
   //登陆接口
@@ -23,9 +25,16 @@ module.exports = function (router) {
     }
   });
   //搜索产品接口-有限显示数量
-  router.get("/searchLQTY", async (ctx, next) => {
-    const id = ctx.params.id;
-    ctx.body = `搜索产品接口`;
+  router.post("/searchProdutos", async (ctx, next) => {
+    const { pfullname } = ctx.request.body;
+    console.log(pfullname, "pfullnameRouter");
+    //调用searchGraspProduto方法
+    const res = await searchGraspProduto(pfullname);
+    //返回查询结果
+    ctx.body = {
+      code: 200,
+      data: res,
+    };
   });
 
   // 在这里可以继续添加更多用户相关的路由...
