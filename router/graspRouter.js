@@ -28,7 +28,15 @@ module.exports = function (router) {
   //搜索产品接口-有限显示数量
   router.post("/searchProdutos", async (ctx, next) => {
     const { pfullname } = ctx.request.body;
-    console.log(pfullname, "pfullnameRouter");
+    // console.log(pfullname, "pfullnameRouter");
+    //确认是否获取到pfullname，如果没有返回错误
+    if (!pfullname) {
+      ctx.body = {
+        code: 400,
+        msg: "请输入产品名称",
+      };
+      return;
+    }
     //调用searchGraspProduto方法
     const res = await searchGraspProduto(pfullname);
     //返回查询结果
