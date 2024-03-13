@@ -12,15 +12,16 @@ module.exports = function (router) {
     //调用login方法
     const res = await login(username, password);
     //如果res为true，返回登陆成功，否则返回登陆失败
-    if (res) {
+    if (res.login) {
       ctx.body = {
         code: 200,
-        msg: "登陆成功",
+        msg: "登陆成功LoginSucess",
+        token: res.token,
       };
     } else {
       ctx.body = {
         code: 400,
-        msg: "登陆失败",
+        msg: "登陆失败LoginFalha",
       };
     }
   });
