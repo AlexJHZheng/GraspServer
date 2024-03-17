@@ -69,5 +69,25 @@ module.exports = function (router) {
     }
   });
 
+  // router.post("/verifyToken", async (ctx, next) => {
+  //   //从请求头获取bearer token
+  //   const token = ctx.request.header.authorization.split(" ")[1];
+  //   const res = verifyToken(token);
+  //   if (res.valid) {
+  //     console.log(res.username + "成功的进行了接口访问");
+  //     ctx.body = {
+  //       code: 200,
+  //       msg: "token有效,token valid",
+  //       username: res.username,
+  //     };
+  //   } else {
+  //     console.log(res.username + "成功的进行了接口访问");
+  //     ctx.body = {
+  //       code: 400,
+  //       msg: "token无效,token invalid",
+  //     };
+  //   }
+  // });
+
   // 在这里可以继续添加更多用户相关的路由...
 };

@@ -14,7 +14,6 @@ async function searchGraspProduto(pfullname) {
 }
 
 // 本地功能区
-
 // 模糊搜索产品信息并获取库存数量以及草稿箱信息
 async function searchProducts(keyword) {
   try {
