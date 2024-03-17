@@ -7,36 +7,14 @@ const dbgrasp = require("../config/dbConfig.json").dbgrasp;
 
 //1.查询产品库存列表
 async function searchGraspProduto(pfullname) {
-  console.log(pfullname, "pfullnameSer");
-  // const pool = await sql.connect(dbgrasp);
-  //连接数据库
-  // connectDB();
-  // const pool = await sql.connect(dbgrasp);
   //调用数据库
   const Products = await searchProducts(pfullname);
   //返回查询结果
   return Products;
 }
 
-// function reqGraspAdd(data) {
-//   return request({
-//     url: "/grasp/add",
-//     method: "post",
-//     data,
-//   });
-// }
-
 // 本地功能区
-// 连接数据库
-// 连接数据库
-// async function connectDB() {
-//   try {
-//     await pool.connect();
-//     console.log("Connected to Grasp MSSQL database");
-//   } catch (err) {
-//     console.error("Error connecting to MSSQL database:", err);
-//   }
-// }
+
 // 模糊搜索产品信息并获取库存数量以及草稿箱信息
 async function searchProducts(keyword) {
   try {
