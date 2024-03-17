@@ -36,7 +36,13 @@ app.use((ctx, next) => {
 
 // 使用koaJwt中间件保护路由
 // 除了/login接口，其他接口都需要token
-app.use(koaJwt({ secret: secret }).unless({ path: [/^\/userlogin/] }));
+// 使用koaJwt中间件保护路由
+// 除了/login接口和/verifyToken接口，其他接口都需要token
+app.use(
+  koaJwt({ secret: secret }).unless({
+    path: [/^\/userlogin/, /^\/verifyToken/],
+  })
+);
 
 // 使用中间件
 app.use(bodyParser());
