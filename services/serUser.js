@@ -29,9 +29,18 @@ async function login(username, password) {
   return { login: false, token: "" };
 }
 
-// 本地功能区
+// 校验token是否有效，返回true或false和用户名
+function verifyToken(token) {
+  try {
+    const result = jwt.verify(token, secret);
+    return { valid: true, username: result.username };
+  } catch (error) {
+    return { valid: false, username: "" };
+  }
+}
 
 //导出功能;
 module.exports = {
   login,
+  verifyToken,
 };
