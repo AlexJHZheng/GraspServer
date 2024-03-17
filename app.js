@@ -1,4 +1,6 @@
 const Koa = require("koa");
+// CORS跨域中间件
+const cors = require("koa-cors");
 const Router = require("koa-router");
 // bodyParser是一个中间件，用于解析http请求体中的内容
 const bodyParser = require("koa-bodyparser");
@@ -16,6 +18,9 @@ const { secret } = require("./config/secret");
 
 // 使用中间件
 graspRouter(router);
+
+// 使用 CORS 中间件
+app.use(cors());
 
 // 加密登陆错误处理
 app.use((ctx, next) => {
